@@ -10,6 +10,12 @@ int main(){
         reverse = reverse * 10 + rem;
         num /=10;
     }; // reverse logic
-    cout << "The revered number is : " << reverse ;
+
+    if (num == reverse){
+        cout << "The provided number : " << reverse << " is a palindrome number !";
+    }
+    else if ( num != reverse){
+        cout << "The revered number is : " << reverse ;
+    }
     return 0;
 }
