@@ -1,0 +1,35 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int year, month;
+    cout << "Enter the year: ";
+    cin >> year;
+    cout << "Enter the month number (1-12): ";
+    cin >> month;
+    if (month < 1 || month > 12) {
+        cout << "Invalid month input" << endl;
+        return 0;
+    }
+    bool leapYear = false;
+    if ((year % 400 == 0) || (year % 4 == 0 && year % 100 != 0)) {
+        leapYear = true;
+    }
+    if (leapYear)
+        cout << "The year " << year << " is a leap year" << endl;
+    else
+        cout << "The year " << year << " is not a leap year" << endl;
+    if (month == 2) {
+        if (leapYear)
+            cout << "The month has 29 days" << endl;
+        else
+            cout << "The month has 28 days" << endl;
+    }
+    else if (month == 4 || month == 6 || month == 9 || month == 11) {
+        cout << "The month has 30 days" << endl;
+    }
+    else {
+        cout << "The month has 31 days" << endl;
+    }
+    return 0;
+}
