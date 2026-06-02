@@ -1,0 +1,20 @@
+#include <iostream>
+using namespace std;
+int main() {
+    int ticket, original, ulta = 0, a, sum = 0;
+    cout << "Enter the ticket number to check if it's lucky: ";
+    cin >> ticket;
+    original = ticket;
+    while (ticket > 0) {
+        a = ticket % 10;
+        ulta = ulta * 10 + a;
+        sum += a;
+        ticket /= 10;
+    }
+    if (original == ulta && sum > 20) {
+        cout << "The ticket is lucky" << endl;
+    } else {
+        cout << "The ticket is normal" << endl;
+    }
+    return 0;
+}
