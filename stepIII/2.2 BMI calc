@@ -1,0 +1,36 @@
+#include <iostream>
+using namespace std;
+float bmi(float weight, float height) {
+    return weight / (height * height);
+}
+void bmi_cat(float bmiValue) {
+    if (bmiValue < 18.5) {
+        cout << "Underweight" << endl;
+    }
+    else if (bmiValue < 25) {
+        cout << "Normal" << endl;
+    }
+    else if (bmiValue < 30) {
+        cout << "Overweight" << endl;
+    }
+    else {
+        cout << "Obese" << endl;
+    }
+}
+float calories(int steps) {
+    float cal = steps * 0.04;
+    return cal;
+}
+
+int main() {
+    float weight, height;
+    int steps;
+    cout << "Enter weight (kg), height (m), and steps: ";
+    cin >> weight >> height >> steps;
+    float bmiValue = bmi(weight, height);
+    cout << "BMI: " << bmiValue << endl;
+    cout << "BMI Category: ";
+    bmi_cat(bmiValue);
+    cout << "Calories Burned: " << calories(steps) << endl;
+    return 0;
+}
