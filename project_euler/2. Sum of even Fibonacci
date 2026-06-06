@@ -1,0 +1,16 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    long long a=1, b=2, sum=0, next;
+    while(a<4000000){
+        if(a%2 == 0){
+            sum+= a;        
+        }
+    next = a+b;
+    a = b;
+    b = next;
+    }
+    cout <<"The sum of all even numbers in Fibonacci series is : "<<sum;
+    return 0;
+}
