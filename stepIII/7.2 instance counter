@@ -1,0 +1,47 @@
+#include <iostream>
+#include <string>
+#include <sstream>
+using namespace std;
+
+class Widget {
+private:
+    string name;
+    static int count;
+
+public:
+    Widget(string n) {
+        name = n;
+        count++;
+    }
+
+    static int getCount() {
+        return count;
+    }
+};
+
+// Initialize static variable
+int Widget::count = 0;
+
+int main() {
+    string line;
+
+    while (getline(cin, line)) {
+        stringstream ss(line);
+        string op;
+        ss >> op;
+
+        if (op == "NEW") {
+            string name;
+            ss >> name;
+
+            Widget w(name);
+        }
+        else if (op == "COUNT") {
+            cout << "Count: " << Widget::getCount() << "\n";
+        }
+    }
+
+    cout << "Total: " << Widget::getCount() << "\n";
+
+    return 0;
+}
