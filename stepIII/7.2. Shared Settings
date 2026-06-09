@@ -1,0 +1,49 @@
+#include <iostream>
+#include <vector>
+#include <string>
+#include <sstream>
+using namespace std;
+
+class Item {
+private:
+    int price;
+public:
+    static int discount; // Shared by all items
+    Item(int p) {
+        price = p;
+    }
+    int getNetPrice() const {
+        return price * (100 - discount) / 100;
+    }
+};
+// Initialize static variable
+int Item::discount = 0;
+
+int main() {
+    vector<Item> items;
+    string line;
+    while (getline(cin, line)) {
+        stringstream ss(line);
+        string op;
+        ss >> op;
+        if (op == "SETDISCOUNT") {
+            int d;
+            ss >> d;
+            Item::discount = d;
+        }
+        else if (op == "ADD") {
+            int price;
+            ss >> price;
+            items.push_back(Item(price));
+        }
+        else if (op == "TOTAL") {
+            long long total = 0;
+            for (const Item& item : items) {
+                total += item.getNetPrice();
+            }
+            cout << "Total: " << total << "\n";
+        }
+    }
+
+    return 0;
+}
